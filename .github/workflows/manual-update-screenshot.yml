@@ -8,9 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - run: npm install
-      - run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+      - run: git config --local user.email "action@github.com"
+      - run: git config --local user.name "GitHub Action"
       - run: npm run update-screenshot
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
