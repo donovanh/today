@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>What day is it?</title>
+  <meta name="description" content="Have a nice day!">
+  <meta name="author" content="Donovan Hutchinson">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #000c2c;
+      background: linear-gradient(to right bottom, #1d5c88, #000c2c);
+    }
+    main {
+      font-family: 'Work Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+    }
+    .today {
+      color: #eee;
+      font-size: 20vw;
+      font-weight: bold;
+      overflow: hidden;
+      opacity: 0;
+    }
+    .full-date {
+      color: #eee;
+      font-size: 4vw;
+      font-weight: 800;
+      letter-spacing: 0.01vw;
+      overflow: hidden;
+      opacity: 0;
+    }
+    .letter {
+      animation: letter 1s cubic-bezier(.8,-0.3,.2,1.2) forwards;
+      display: inline-block;
+      opacity: 0;
+    }
+    @keyframes letter {
+      0% {
+        transform: translateY(19vw);
+        opacity: 1;
+      }
+      100%  {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <section class="today"></section>
+      <section class="full-date"></section>
+    </article>
+  </main>
+  <script>
+    const today = new Date().toLocaleString('en-us', {  weekday: 'long' });
+    const fullDate = new Date().toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
+    document.querySelector('.today').innerText = today;
+    document.querySelector('.full-date').innerText = fullDate;
+    document.title = 'It is ' + today;
+
+    (function() {
+      const todayContainer = document.querySelector('.today');
+      const updatedHTML = todayContainer
+        .innerText.split('')
+        .map((letter, i) => {
+          let delay = 0;
+          if (letter === ' ') {
+            letter = '&nbsp;';
+          } else {
+            delay = letter === ' ' ? 0 : (i - 1) * 50;
+          }
+          return `<span class="letter" style="animation-delay: ${delay}ms">${letter}</span>`
+        })
+        .join('');
+      todayContainer.innerHTML = updatedHTML;
+      todayContainer.style.opacity = 1;
+    })();
+
+    (function() {
+      const fullDateContainer = document.querySelector('.full-date');
+      const updatedHTML = fullDateContainer
+        .innerText.split('')
+        .map((letter, i) => {
+          let delay = 0;
+          if (letter === ' ') {
+            letter = '&nbsp;';
+          } else {
+            delay = letter === ' ' ? 0 : (i - 1) * 50;
+          }
+          return `<span class="letter" style="animation-delay: ${delay}ms">${letter}</span>`
+        })
+        .join('');
+      fullDateContainer.innerHTML = updatedHTML;
+      fullDateContainer.style.opacity = 1;
+    })();
+  </script>
+</body>
+</html>
