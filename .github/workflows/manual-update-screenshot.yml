@@ -1,0 +1,17 @@
+name: Manually Update Screenshot
+on:
+  workflow_dispatch
+
+jobs:
+  update_screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - run: npm install
+      - run: npm run update-screenshot
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          PUBLISH_DIR: site 
+          PUBLISH_BRANCH: gh-pages
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

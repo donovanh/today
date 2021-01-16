@@ -2,9 +2,10 @@
   "name": "today",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-screenshot": "node screenshot && gh-pages -d site"
   },
   "repository": {
     "type": "git",
@@ -12,8 +13,9 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/donovanh/today/issues"
-  },
-  "homepage": "https://github.com/donovanh/today#readme"
+  "homepage": "https://github.com/donovanh/today#readme",
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "puppeteer": "^5.5.0"
+  }
 }
