@@ -26,7 +26,7 @@ function wait(ms) {
     deviceScaleFactor: 1,
   });
   await page.screenshot({
-    path: './site/today.png'
+    path: './_site/today.png'
   });
   console.log('Screenshot written');
   await browser.close();
