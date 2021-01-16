@@ -1,4 +1,12 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
+
+var dir = './_site';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+    fs.copyFile('./site/index.html', dir + 'index.html');
+}
 
 function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
