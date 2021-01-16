@@ -1,15 +1,4 @@
 const puppeteer = require('puppeteer');
-const fs = require('fs');
-
-var dir = './_site';
-
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
-    fs.copyFile('./site/index.html', dir + 'index.html', (err) => {
-      if (err) throw err;
-      console.log('Index.html file copied to _site');
-    });
-}
 
 function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,7 +15,7 @@ function wait(ms) {
     deviceScaleFactor: 1,
   });
   await page.screenshot({
-    path: './_site/today.png'
+    path: './site/today.png'
   });
   console.log('Screenshot written');
   await browser.close();
