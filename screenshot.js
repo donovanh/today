@@ -5,7 +5,10 @@ var dir = './_site';
 
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
-    fs.copyFile('./site/index.html', dir + 'index.html');
+    fs.copyFile('./site/index.html', dir + 'index.html', (err) => {
+      if (err) throw err;
+      console.log('Index.html file copied to _site');
+    });
 }
 
 function wait(ms) {
