@@ -1,7 +1,6 @@
-name: Update Screenshot
+name: Manually Update Screenshot
 on:
-  schedule:
-  - cron: '1 0 * * *'
+  workflow_dispatch
 
 jobs:
   update_screenshot:
@@ -9,6 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - run: npm install
+      - run: git config --local user.email "action@github.com"
+      - run: git config --local user.name "GitHub Action"
       - run: npm run update-screenshot
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
