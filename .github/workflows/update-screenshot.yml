@@ -1,4 +1,4 @@
-name: Manually Update Screenshot
+name: Scheduled Update Screenshot
 on:
   schedule:
     - cron: '1 0 * * *'
