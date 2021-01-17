@@ -1,6 +1,6 @@
 # What day is it?
 
-![Today is...](https://hop.ie/today/day.png)
+![Today is...](https://hop.ie/today/today.png)
 
 Unless you're in a timezone where the above is incorrect. If so, [try the live site!](https://hop.ie/today/)
 
