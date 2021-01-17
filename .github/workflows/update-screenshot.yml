@@ -1,6 +1,7 @@
 name: Manually Update Screenshot
-schedule:
-  - cron: '1 0 * * *'
+on:
+  schedule:
+    - cron: '1 0 * * *'
 
 jobs:
   update_screenshot:
