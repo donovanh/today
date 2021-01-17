@@ -10,4 +10,4 @@ This is a demo to show how a Github Action can create a dynamic social media sha
 
 ## License
 
-To thrill!
+MIT
