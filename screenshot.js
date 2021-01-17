@@ -8,7 +8,7 @@ function wait(ms) {
   const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
   await page.goto('https://hop.ie/today/');
-  await wait(1500);
+  await wait(2000);
   await page.setViewport({
     width: 1200,
     height: 675,

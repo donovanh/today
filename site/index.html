@@ -76,10 +76,13 @@
   </main>
   <script>
     const today = new Date().toLocaleString('en-us', {  weekday: 'long' });
+    const cacheBreaker = new Date().getTime();
     const fullDate = new Date().toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
     document.querySelector('.today').innerText = today;
     document.querySelector('.full-date').innerText = fullDate;
     document.title = 'It is ' + today;
+    document.querySelector('meta[name="twitter:image"]').setAttribute("content", 'https://hop.ie/today/today.png?' + cacheBreaker);
+    document.querySelector('meta[property="og:image"]').setAttribute("content", 'https://hop.ie/today/today.png?' + cacheBreaker);
 
     (function() {
       const todayContainer = document.querySelector('.today');
